@@ -33,28 +33,7 @@ abcdefghijklmnopqrstuvwxyz234567
 
 ## Build instructions
 
-### Ubuntu 22.04
+### Docker - Ubuntu 24.04
 
-Run the following commands to build and install (assumes card is at least Pascal generation)
-```
-sudo apt update
-sudo apt install cmake build-essential wget python3-pip ninja-build
-
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
-sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
-wget https://developer.download.nvidia.com/compute/cuda/12.4.1/local_installers/cuda-repo-ubuntu2204-12-4-local_12.4.1-550.54.15-1_amd64.deb
-sudo dpkg -i cuda-repo-ubuntu2204-12-4-local_12.4.1-550.54.15-1_amd64.deb
-sudo cp /var/cuda-repo-ubuntu2204-12-4-local/cuda-*-keyring.gpg /usr/share/keyrings/
-sudo apt update
-sudo apt install -y cuda-toolkit-12-4 cuda-drivers-550
-
-echo "export PATH=\$PATH:/usr/local/cuda-12.4/bin" >> $HOME/.bashrc
-source $HOME/.bashrc
-
-cd vanity_torv3_cuda
-pip install -r util/requirements.txt
-mkdir build && cd build
-cmake .. -G Ninja
-ninja
-```
+Get a build tarball with `docker build -o . .`
 
