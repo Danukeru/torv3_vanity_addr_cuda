@@ -1,5 +1,7 @@
 # Tor V3 vanity address generator
 
+For a version that works across vendors and has an up to date fused kernel, try the newer [Vulkan Vanity Address generator](https://github.com/Danukeru/torv3_vanity_addr_vulkan).
+
 Usage:
 ```
 ./vanity_torv3_cuda [-i] [-d N] pattern1 [pattern_2] [pattern_3] ... [pattern_n]
